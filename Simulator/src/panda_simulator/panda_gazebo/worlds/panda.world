@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+   <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+   <!-- Camera -->
+    <include>
+      <uri>model://kinect</uri>
+      <static>true</static>
+      <pose>0.75 0.75 0.75 0 0.7854 4.7124</pose>
+    </include>
+
+
+
+    <!-- Testing the automatic population of objects -->
+    <population name="can_population1">
+      <model name="can1">
+        <include>
+          <static>false</static>
+	  <collision>true</collision>
+	  <size>.5 .5 .5</size>
+          <uri>model://coke_can</uri>
+        </include>
+      </model>
+      <pose>0 0 0 0 0 0</pose>
+      <box>
+        <size>2 2 0.01</size>
+      </box>
+      <model_count>2</model_count>
+      <distribution>
+        <type>random</type>
+      </distribution>
+    </population>
+
+
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+    </physics>
+    
+    <gravity>
+      0.0 0 -9.81
+    </gravity>
+
+    <gui fullscreen='0'>
+    </gui>
+
+  </world>
+</sdf>
